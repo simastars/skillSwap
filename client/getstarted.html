@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#f8fbfa] group/design-root overflow-x-hidden" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e8f2ec] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#0e1a13]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_330)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_330"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="text-[#0e1a13] text-lg font-bold leading-tight tracking-[-0.015em]">SkillSwap</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#0e1a13] text-sm font-medium leading-normal" href="#">Browse</a>
+              <a class="text-[#0e1a13] text-sm font-medium leading-normal" href="#">My Skills</a>
+              <a class="text-[#0e1a13] text-sm font-medium leading-normal" href="#">Requests</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#39e079] text-[#0e1a13] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Post a Skill</span>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsIq2QcmLa9ozX4K6-20XUJ6bHAr_uvK_rfi4jNFVFJ5gn0byuJQZzf7KJuRfFJ0ZpR1j21RDn4MDGWsoWcP-1knSEGgPmrZy7PyyYcXTrKw6UsYGNjTC7KoJH5xCv7_1RJlb3IwAfTcN4e2x39xhVsS-6Q9xrvaGZztqWlOvpYtcPnXMvKBtruylhKir2LXhzRZsEA7szj6lttTOOD4KCOXjDTElz1s7KfVjv2yxy_sc2eYiZzMamU--NMhnlRSkY0CzQUW2FpNs");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:px-4 @[480px]:py-3">
+                <div
+                  class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-[#f8fbfa] @[480px]:rounded-lg min-h-80"
+                  style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 25%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDqoNinYfiaBP-r1_NI5VcpP9i7uT4JSlg_GG5IQzF_1XWwe2ovnjHfHEbDjzOJGZ-1SqKrBY6bZHFJEFeJnzU2C5XSfz4jC9g2tnp6seFQah99nYoPGU1rD4OnEih1jYDn6Y3O_uKlLhPzVenP6sfu4kKb4N4S6iSqI4l6g6MhO4Kg361IoYbGIXF7_iIT2KZ4mbXM7HsuO0VlDHG-F9cIUwgArUNerKj4wpX-aLTCKL6bOGTJfO7fXtffjndHXkRnwykqyM9Zkc4");'
+                >
+                  <div class="flex p-4"><p class="text-white tracking-light text-[28px] font-bold leading-tight">Give a Skill, Get a Skill</p></div>
+                </div>
+              </div>
+            </div>
+            <p class="text-[#0e1a13] text-base font-normal leading-normal pb-3 pt-1 px-4 text-center">
+              SkillSwap is a community-powered learning platform where you can exchange skills without money. Grow together by sharing your expertise and learning from others.
+            </p>
+            <div class="flex px-4 py-3 justify-center">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-[#39e079] text-[#0e1a13] text-base font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Get Started</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
