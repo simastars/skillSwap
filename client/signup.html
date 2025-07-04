@@ -65,85 +65,122 @@
             >
               Connect with others and exchange skills without money
             </p>
-            <div class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center">
-              <label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="First Name"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  id="fname"
-                  type="text"
-                />
-              </label><label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="Other Name(s)"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  id="oname"
-                  type="text"
-                />
-              </label>
-            </div><div class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center">
-              <label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="Phone number"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  id="phone"
-                  type="tel"
-                />
-              </label><label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="Email"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  id="email"
-                  type="email"
-                />
-              </label>
-            </div><div class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center">
-              <label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="Username"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  id="username"
-                />
-              </label><label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="Date of Birth"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  type="date"
-                  id="dob"
-                />
-              </label>
-            </div><div class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center">
-              <label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="Password"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  type="password"
-                  id="Password"
-                />
-              </label><label class="flex flex-col min-w-40 flex-1">
-                <input
-                  placeholder="Confirm Password"
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
-                  value=""
-                  type="password"
-                  id="confirmpassword"
-                />
-              </label>
+            <div class="w-full flex justify-center">
+              <div
+                id="response-message"
+                class="hidden max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center text-red-600 bg-red-100 border border-red-600 rounded"
+              ></div>
             </div>
-            <div class="flex px-4 py-3 justify-center">
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#39e079] text-[#0e1a13] text-sm font-bold leading-normal tracking-[0.015em]"
+
+            <form id="registration-form">
+              <div
+                class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center"
               >
-                <span class="truncate">Continue</span>
-              </button>
-            </div>
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="First Name"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    id="firstName"
+                    type="text"
+                  />
+                </label>
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="Other Name(s)"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    id="otherNames"
+                    type="text"
+                  />
+                </label>
+              </div>
+
+              <div
+                class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center"
+              >
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="Phone number"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    id="phoneNumber"
+                    type="tel"
+                  />
+                </label>
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="Email"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    id="email"
+                    type="email"
+                  />
+                </label>
+              </div>
+
+              <div
+                class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center"
+              >
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="Username"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    id="username"
+                    type="text"
+                  />
+                </label>
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="Date of Birth"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    type="date"
+                    id="dateOfBirth"
+                  />
+                </label>
+              </div>
+
+              <div
+                class="flex max-w-[960px] flex-wrap items-end gap-4 px-4 py-3 justify-center"
+              >
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="Password"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    type="password"
+                    id="password"
+                  />
+                </label>
+                <label class="flex flex-col min-w-40 flex-1">
+                  <input
+                    placeholder="Confirm Password"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0e1a13] focus:outline-0 focus:ring-0 border-none bg-[#e8f2ec] focus:border-none h-14 placeholder:text-[#51946b] p-4 text-base font-normal leading-normal"
+                    value=""
+                    type="password"
+                    id="confirmPassword"
+                  />
+                </label>
+              </div>
+
+              <div class="flex px-4 py-3 justify-center">
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#39e079] text-[#0e1a13] text-sm font-bold leading-normal tracking-[0.015em]"
+                  type="submit"
+                  id="continue-btn"
+                >
+                  <span class="truncate">Register</span>
+                </button>
+              </div>
+             <p
+              class="text-[#51946b] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center"
+            >
+              if you already have an account <a href="signin.html">signin</a>
+            </p>
+            </form>
+
             <p
               class="text-[#51946b] text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center"
             >
@@ -155,11 +192,14 @@
               >
                 <button
                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e8f2ec] text-[#0e1a13] text-sm font-bold leading-normal tracking-[0.015em] grow"
+                  id="google-login-btn"
                 >
-                  <span class="truncate">Continue with Google</span><i class="fa fa-address-book"></i>
+                  <span class="truncate">Continue with Google</span
+                  ><i class="fa fa-address-book"></i>
                 </button>
                 <button
                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e8f2ec] text-[#0e1a13] text-sm font-bold leading-normal tracking-[0.015em] grow"
+                  id="facebook-login-btn"
                 >
                   <span class="truncate">Continue with Facebook</span>
                 </button>
@@ -171,3 +211,102 @@
     </div>
   </body>
 </html>
+
+<script>
+  // URL of your running backend server
+  const BACKEND_URL = "http://localhost:5000";
+
+  // const form = document.getElementById("registration-form");
+  const responseDiv = document.getElementById("response-message");
+
+  // --- 1. Handle Standard Form Submission ---
+  // Get the button element by its new ID
+  const continueBtn = document.getElementById("continue-btn");
+
+  // Attach the event listener to the button's 'click' event
+  continueBtn.addEventListener("click", async (event) => {
+    // It's still good practice to prevent any default behavior, though less critical with type="button"
+    event.preventDefault();
+
+    // Clear previous messages
+    responseDiv.style.display = "none";
+    responseDiv.textContent = "";
+
+    // Get form data (this part is identical)
+    const firstName = document.getElementById("firstName").value;
+    const otherNames = document.getElementById("otherNames").value;
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    const email = document.getElementById("email").value;
+    const username = document.getElementById("username").value;
+    const dateOfBirth = document.getElementById("dateOfBirth").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    // Simple client-side validation
+    if (password !== confirmPassword) {
+      showResponse("Passwords do not match!", "error");
+      return;
+    }
+
+    const formData = {
+      firstName,
+      otherNames,
+      phoneNumber,
+      email,
+      username,
+      dateOfBirth,
+      password,
+      confirmPassword,
+    };
+
+    try {
+      // Use the Fetch API to send a POST request to the backend (identical)
+      const response = await fetch(`${BACKEND_URL}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle errors (identical)
+        const errorMessage =
+          data.msg || (data.errors ? data.errors[0].msg : "An error occurred.");
+        throw new Error(errorMessage);
+      }
+
+      // Success! (identical)
+      showResponse("Registration successful!", "success");
+      document.getElementById("registration-form").reset(); // Reset the form fields
+    } catch (error) {
+      // Display any errors from the fetch or from the backend (identical)
+      showResponse(error.message, "error");
+    }
+  });
+
+  // --- 2. Handle Social Logins ---
+
+  // Google Login
+  document.getElementById("google-login-btn").addEventListener("click", () => {
+    // This simply redirects the browser to our backend's Google auth route
+    window.location.href = `${BACKEND_URL}/api/auth/google`;
+  });
+
+  // Facebook Login
+  document
+    .getElementById("facebook-login-btn")
+    .addEventListener("click", () => {
+      // Redirects to the backend's Facebook auth route
+      window.location.href = `${BACKEND_URL}/api/auth/facebook`;
+    });
+
+  // --- Helper Function to show messages ---
+  function showResponse(message, type) {
+    responseDiv.textContent = message;
+    responseDiv.className = type; // 'success' or 'error'
+    responseDiv.style.display = "block";
+  }
+</script>
