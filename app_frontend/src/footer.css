@@ -1,43 +1,181 @@
-footer {
+/* src/components/Footer.css */
+
+/* Use a common font, or import one like 'Inter' from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --footer-bg: #090E34;
+  --text-light: #FFFFFF;
+  --text-secondary: #ADB5BD; /* A light gray from Bootstrap */
+  --divider-color: rgba(255, 255, 255, 0.1);
+  --teal-accent: #30A193;
+}
+
+.footer-section {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--footer-bg);
+  color: var(--text-secondary);
+  padding: 80px 0 30px;
   position: relative;
-  background: #0a0a23;
-  color: white;
-  padding-top: 100px;
-  text-align: center;
-  overflow: hidden;
+  overflow: hidden; /* Important for containing pseudo-elements */
 }
 
-.footer-waves .wave {
+/* Decorative background elements */
+.footer-section::before,
+.footer-section::after {
+  content: '';
   position: absolute;
-  width: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--teal-accent) 0%, rgba(9, 14, 52, 0) 70%);
+  opacity: 0.2;
+  z-index: 0;
+  pointer-events: none; /* Make them non-interactive */
+}
+
+.footer-section::before {
+  width: 350px;
+  height: 350px;
+  left: -100px;
+  top: -50px;
+}
+
+.footer-section::after {
+  width: 400px;
+  height: 400px;
+  right: -150px;
+  bottom: -150px;
+}
+
+.footer-dots {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
   height: 100px;
-  bottom: 0;
-  background: url("./wave.svg"); /* Or custom shape */
-  animation: wave 4s linear infinite;
-  opacity: 0.5;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  z-index: 0;
+  pointer-events: none;
 }
 
-#wave1 { z-index: 100; animation-delay: 0s; }
-#wave2 { z-index: 99; animation-delay: -2s; }
-#wave3 { z-index: 98; animation-delay: -4s; }
-#wave4 { z-index: 97; animation-delay: -6s; }
-
-@keyframes wave {
-  0%   { background-position-x: 0; }
-  100% { background-position-x: 1000px; }
+/* Ensure content is above the decorative elements */
+.footer-section .container {
+  position: relative;
+  z-index: 1;
 }
 
-.footer-icons {
-  width: 24px;
-  height: 24px;
+/* --- Brand Section --- */
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-light);
+  margin-bottom: 24px;
 }
 
-.footer-link {
-  color: #fff;
+.footer-logo-container .logo-text {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.footer-brand-text {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.social-icons a {
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-right: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--text-light);
+}
+
+/* --- Link Columns --- */
+.footer-links-col h5 {
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-list li {
+  margin-bottom: 14px;
+}
+
+.footer-links-list a {
+  color: var(--text-secondary);
   text-decoration: none;
-  font-weight: 500;
+  transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
-.footer-link:hover {
-  text-decoration: underline;
+.footer-links-list a:hover {
+  color: var(--text-light);
+  padding-left: 5px;
+}
+
+/* --- Blog Section --- */
+.blog-post {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.blog-post .blog-text {
+  margin: 0;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.blog-post:hover .blog-text {
+  color: var(--text-light);
+}
+
+/* --- Bottom Section --- */
+.footer-bottom {
+  border-top: 1px solid var(--divider-color);
+  padding-top: 30px;
+  margin-top: 50px;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* For responsiveness */
+  gap: 15px;
+}
+
+.footer-legal-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-right: 24px;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:last-child {
+  margin-right: 0;
+}
+
+.footer-legal-links a:hover {
+  color: var(--text-light);
+}
+
+/* Responsive adjustments for the bottom part */
+@media (max-width: 767px) {
+  .footer-bottom-content {
+    flex-direction: column-reverse; /* Stack copyright below links on mobile */
+    text-align: center;
+  }
 }
