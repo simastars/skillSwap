@@ -26,6 +26,7 @@ function App() {
             }}
           >
             <span style={{ fontSize: "70px", fontWeight: "bold" }}>SkillSwap</span>
+            <div className="text-center" style={{ fontSize: "30px", fontWeight: "bold" }}>A community for skill sharing and collaboration.</div>
           </div>
           <ImageTrail
             key={1}
