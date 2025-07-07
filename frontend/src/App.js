@@ -6,13 +6,13 @@ import SkillswapHomePage from "./Components/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Register from "./Components/Register";
 import HeroBanner from "./Components/Hero";
-import ImageTrail from "./blocks/Animations/ImageTrail/ImageTrail";
+import ImageTrail from "./Components/Animations/ImageTrail/ImageTrail";
 
 // import images
-import image  from "./assets/img/skillUniverse.jpg";
-import image2  from "./assets/img/skillSpace.jpg";
-import image3  from "./assets/img/skillYou.jpg";
-import image4  from "./assets/img/skillUs.jpg";
+import image from "./assets/img/skillUniverse.jpg";
+import image2 from "./assets/img/skillSpace.jpg";
+import image3 from "./assets/img/skillYou.jpg";
+import image4 from "./assets/img/skillUs.jpg";
 // // Usage with all props
 // <TextTrail
 //   text="React Bits"
@@ -41,17 +41,30 @@ import image4  from "./assets/img/skillUs.jpg";
 function App() {
   return (
     <div className="position-relative">
-  {/* Background/Base Component */}
-  <div style={{ position: 'relative',  top: '50%', left: '50%', zIndex: 0 }}>
-    <span>Test</span>
-  </div>
+      {/* Background/Base Component */}
+      <div style={{ position: "relative", top: "50%", left: "50%", zIndex: 0 }}>
+        <span>Test</span>
+      </div>
 
-  {/* ImageTrail (on top) */}
-  <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10, pointerEvents: 'auto' }}>
-    <ImageTrail key={1} items={[image, image2,image3, image4]} variant={6} />
-  </div>
-</div>
-
+      {/* ImageTrail (on top) */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 10,
+          pointerEvents: "auto",
+        }}
+      >
+        <ImageTrail
+          key={1}
+          items={[image, image2, image3, image4]}
+          variant={6}
+        />
+      </div>
+    </div>
   );
 }
 
