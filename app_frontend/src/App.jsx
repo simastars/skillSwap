@@ -8,6 +8,7 @@ import image2 from "./assets/images/skillSpace.jpg";
 import image3 from "./assets/images/skillYou.jpg";
 import image4 from "./assets/images/skillUs.jpg";
 import ImageTrail from "./components/Animations/ImageTrail/ImageTrail";
+import HomeBody from "./components/homeBody";
 function App() {
   return (
     <>
@@ -17,11 +18,16 @@ function App() {
         <div
           className="text-white"
           style={{
-            backgroundColor: "#090E34",
+            background: `linear-gradient(to bottom, rgba(9,14,52,0.8), rgba(0,240,200,0.5),rgba(9,14,52,0.8)), url(${image})`,
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundAttachment: "scroll", // optional: can be 'fixed' for parallax effect
             position: "relative",
             width: "100vw",
             height: "100vh",
             overflow: "hidden",
+            color: "white",
           }}
         >
           <div
@@ -31,16 +37,17 @@ function App() {
               left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 0,
+              textAlign: "center",
             }}
           >
-            <span className="text-center" style={{ fontSize: "70px", fontWeight: "bold" }}>
-              SkillSwap
+            <span style={{ fontSize: "70px", fontWeight: "bold" }}>
+              SkillSwap – Learn. Teach. Grow.
             </span>
-            {/* <div className="text-center" style={{ fontSize: "30px", fontWeight: "bold" }}>A community for skill sharing and collaboration.</div> */}
+            <br />
             <svg
               width="100%"
-              height="150"
-              viewBox="0 0 1000 150"
+              height="200"
+              viewBox="0 0 1000 200"
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
@@ -51,11 +58,10 @@ function App() {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stop-color="#00ffe0" />
-                  <stop offset="50%" stop-color="#6f00ff" />
-                  <stop offset="100%" stop-color="#00ffe0" />
+                  <stop offset="0%" stopColor="#00ffe0" />
+                  <stop offset="50%" stopColor="#6f00ff" />
+                  <stop offset="100%" stopColor="#00ffe0" />
                 </linearGradient>
-
                 <linearGradient
                   id="strokeGradient"
                   x1="0%"
@@ -63,28 +69,48 @@ function App() {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stop-color="#00f0ff" />
-                  <stop offset="50%" stop-color="#8c52ff" />
-                  <stop offset="100%" stop-color="#00f0ff" />
+                  <stop offset="0%" stopColor="#00f0ff" />
+                  <stop offset="50%" stopColor="#8c52ff" />
+                  <stop offset="100%" stopColor="#00f0ff" />
                 </linearGradient>
               </defs>
 
               <text
                 x="50%"
-                y="50%"
-                dominant-baseline="middle"
-                text-anchor="middle"
-                font-family="Orbitron, Arial, sans-serif"
-                font-size="30"
-                font-weight="800"
+                y="30%"
+                textAnchor="middle"
+                fontFamily="Orbitron, Arial, sans-serif"
+                fontSize="24"
+                fontWeight="600"
                 fill="url(#fillGradient)"
                 stroke="url(#strokeGradient)"
-                stroke-width="2"
-                paint-order="stroke fill"
+                strokeWidth="2"
+                paintOrder="stroke fill"
               >
-                SkillSwap is a community-powered learning platform
+                <tspan x="50%" dy="1.2em">
+                  Exchange knowledge, not money.
+                </tspan>
+                <tspan x="50%" dy="1.2em">
+                  Connect globally to share and gain skills.
+                </tspan>
+                <tspan x="50%" dy="1.2em">
+                  SkillSwap is a community-powered platform.
+                </tspan>
               </text>
             </svg>
+
+            <div style={{ marginTop: "28px", fontSize: "18px" }}>
+              where you can exchange skills without money. Grow together by
+              sharing your expertise and learning from others.
+            </div>
+            <div className="mt-4">
+              <button className="btn btn-outline-light btn-lg me-3 grad" >
+                Sign Up – It’s Free
+              </button>
+              <button className="btn btn-outline-light btn-lg">
+                Browse Skills
+              </button>
+            </div>
           </div>
           <ImageTrail
             key={1}
@@ -93,7 +119,7 @@ function App() {
           />
         </div>
       </div>
-      <div className="bg-dark text-white mt-2">This is the </div>
+      <HomeBody />
       <Footer />
     </>
   );
