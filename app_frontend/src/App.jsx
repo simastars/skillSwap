@@ -23,10 +23,10 @@ function Layout() {
     <>
     <div className="container-fluid">
       
-      <Routes><Route path="/signup" element={<Signup />} />
+      <Routes>
+        {/* <Route path="/signup" element={<Signup />} /> */}
         <Route path="/" element={<Home />} />
-        {/* <Route path="/signup" element={<Register />} /> */}
-        
+        <Route path="/signup" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="*"
