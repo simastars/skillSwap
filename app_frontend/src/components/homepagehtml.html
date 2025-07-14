@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap | Futuristic Skill Exchange Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-purple: #a100ff;
+            --neon-teal: #00ffc8;
+            --dark-bg: #0a0a1a;
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .audiowide {
+            font-family: 'Audiowide', cursive;
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-purple);
+        }
+        
+        .neon-box {
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+            border: 1px solid rgba(161, 0, 255, 0.3);
+        }
+        
+        .glow-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .glow-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                var(--neon-blue),
+                var(--neon-purple),
+                var(--neon-teal),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite linear;
+            opacity: 0.5;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .glow-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-purple);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-purple);
+        }
+        
+        .feature-icon {
+            filter: drop-shadow(0 0 5px var(--neon-blue));
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px var(--neon-purple));
+        }
+        
+        .testimonial-card {
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(0, 100, 255, 0.1), rgba(161, 0, 255, 0.1));
+        }
+        
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        /* Smooth scroll animation */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animate elements on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold neon-text text-white">Skill<span class="text-purple-400">Swap</span></span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:neon-text">Home</a>
+                        <a href="#how-it-works" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:neon-text">How It Works</a>
+                        <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:neon-text">Features</a>
+                        <a href="#testimonials" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:neon-text">Testimonials</a>
+                        <a href="#" class="relative overflow-hidden glow-button bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-md text-sm font-medium">
+                            <span class="relative z-10">Get Started</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-teal-900/20"></div>
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center animate-on-scroll">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 neon-text tracking-tight">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400">Swap Skills.</span>
+                    <span class="block">Grow Together.</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
+                    The future of peer-to-peer skill exchange is here. Trade your expertise, learn new abilities, and build your network in our decentralized knowledge ecosystem.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="relative overflow-hidden glow-button bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-md text-lg font-bold mx-auto sm:mx-0">
+                        <span class="relative z-10">Start Swapping</span>
+                    </a>
+                    <a href="#how-it-works" class="bg-transparent border-2 border-blue-400/50 hover:border-blue-400 text-white px-8 py-4 rounded-md text-lg font-bold transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/20 mx-auto sm:mx-0">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-20 max-w-4xl mx-auto animate-on-scroll">
+                <div class="relative neon-box rounded-xl overflow-hidden bg-gray-900/50 backdrop-blur-sm p-1">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-teal-500/10"></div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="SkillSwap interface" class="w-full h-auto rounded-lg">
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center animate-on-scroll">
+                <a href="#how-it-works" class="inline-block scroll-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900/10 to-gray-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 neon-text">
+                    How <span class="text-purple-400">SkillSwap</span> Works
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    A simple 4-step process to exchange skills with like-minded professionals
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="step-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-blue-900/30 rounded-full mb-6 mx-auto neon-box">
+                        <span class="text-3xl text-blue-400">1</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-blue-400">Create Profile</h3>
+                    <p class="text-gray-300 text-center">
+                        Set up your profile with skills you can offer and skills you want to learn. Add your experience level and availability.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-100">
+                    <div class="w-16 h-16 flex items-center justify-center bg-purple-900/30 rounded-full mb-6 mx-auto neon-box">
+                        <span class="text-3xl text-purple-400">2</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-purple-400">Find Match</h3>
+                    <p class="text-gray-300 text-center">
+                        Our AI matches you with compatible skill partners based on your preferences, location, and schedule.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-200">
+                    <div class="w-16 h-16 flex items-center justify-center bg-teal-900/30 rounded-full mb-6 mx-auto neon-box">
+                        <span class="text-3xl text-teal-400">3</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-teal-400">Schedule Swap</h3>
+                    <p class="text-gray-300 text-center">
+                        Agree on terms and schedule your skill exchange sessions through our integrated calendar system.
+                    </p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-indigo-900/30 rounded-full mb-6 mx-auto neon-box">
+                        <span class="text-3xl text-indigo-400">4</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-indigo-400">Learn & Earn</h3>
+                    <p class="text-gray-300 text-center">
+                        Exchange skills, earn reputation points, and unlock premium features as you grow your network.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 gradient-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 neon-text">
+                    Why Choose <span class="text-purple-400">SkillSwap</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Revolutionary features that make skill exchange seamless and rewarding
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300">
+                    <div class="w-16 h-16 mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full feature-icon text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-blue-400">Smart Matching</h3>
+                    <p class="text-gray-300 text-center">
+                        Our proprietary algorithm finds the perfect skill partners based on compatibility, schedule, and learning style.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-100">
+                    <div class="w-16 h-16 mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full feature-icon text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-purple-400">Secure Platform</h3>
+                    <p class="text-gray-300 text-center">
+                        End-to-end encrypted communication and verified profiles ensure safe and trustworthy exchanges.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-200">
+                    <div class="w-16 h-16 mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full feature-icon text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-teal-400">Reputation System</h3>
+                    <p class="text-gray-300 text-center">
+                        Earn badges and reputation points for successful swaps, unlocking exclusive features and premium partners.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-300">
+                    <div class="w-16 h-16 mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full feature-icon text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-indigo-400">Flexible Scheduling</h3>
+                    <p class="text-gray-300 text-center">
+                        Our integrated calendar syncs with your existing schedule to find optimal times for skill exchanges.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-400">
+                    <div class="w-16 h-16 mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full feature-icon text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-blue-400">Global Network</h3>
+                    <p class="text-gray-300 text-center">
+                        Connect with professionals worldwide or find local partners - the choice is yours.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 transition-all duration-300 delay-500">
+                    <div class="w-16 h-16 mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full feature-icon text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-center text-purple-400">Progress Tracking</h3>
+                    <p class="text-gray-300 text-center">
+                        Visual dashboards track your learning progress and skill acquisition over time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900/30 to-gray-900/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 neon-text">
+                    What Our <span class="text-purple-400">Community</span> Says
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Join thousands of professionals who are revolutionizing how they learn
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-400">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-xl font-bold text-white">Sarah J.</h4>
+                            <p class="text-blue-400">UI/UX Designer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "I swapped my design skills for coding lessons and it completely transformed my career. The quality of partners on SkillSwap is unmatched."
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 transition-all duration-300 delay-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-400">
+                            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Michael T." class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-xl font-bold text-white">Michael T.</h4>
+                            <p class="text-purple-400">Data Scientist</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "As a data scientist, I taught Python while learning graphic design. The structured approach made it feel like professional training."
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card animate-on-scroll bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 transition-all duration-300 delay-200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-teal-400">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K." class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-xl font-bold text-white">Priya K.</h4>
+                            <p class="text-teal-400">Marketing Director</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "I've saved thousands on professional development by exchanging my marketing expertise for coding and data analysis skills."
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-teal-600/20"></div>
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <div class="animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 neon-text">
+                    Ready to <span class="text-purple-400">Transform</span> Your Skills?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                    Join the future of peer-to-peer learning today. No fees, no subscriptions - just pure skill exchange.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="relative overflow-hidden glow-button bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-md text-lg font-bold mx-auto sm:mx-0">
+                        <span class="relative z-10">Get Started Now</span>
+                    </a>
+                    <a href="#" class="bg-transparent border-2 border-blue-400/50 hover:border-blue-400 text-white px-8 py-4 rounded-md text-lg font-bold transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/20 mx-auto sm:mx-0">
+                        See Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/80 backdrop-blur-sm border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <span class="text-2xl font-bold neon-text text-white">Skill<span class="text-purple-400">Swap</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        The future of peer-to-peer skill exchange. Join our community of lifelong learners and professionals.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Community</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Guidelines</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400">
+                    &copy; 2023 SkillSwap. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (placeholder - would need more implementation)
+        document.querySelector('.md\\:hidden button').addEventListener('click', function() {
+            alert('Mobile menu would open here in a full implementation');
+        });
+
+        // Add glow effect to buttons on hover
+        document.querySelectorAll('.glow-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.boxShadow = `0 0 15px ${getComputedStyle(this).getPropertyValue('--neon-blue')}, 0 0 30px ${getComputedStyle(this).getPropertyValue('--neon-purple')}`;
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
