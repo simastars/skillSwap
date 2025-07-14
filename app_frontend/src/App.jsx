@@ -103,10 +103,10 @@ function App() {
               where you can exchange skills without money. Grow together by
               sharing your expertise and learning from others.
             </div>
-            <div className="mt-4">
-              <button className="btn btn-outline-light btn-lg me-3 grad" >
+            <div className="mt-4" >
+              <a href="/signup" className="btn btn-outline-light btn-lg  grad">
                 Sign Up – It’s Free
-              </button>
+              </a>
               <button className="btn btn-outline-light btn-lg">
                 Browse Skills
               </button>
@@ -116,6 +116,7 @@ function App() {
             key={1}
             items={[image, image2, image3, image4]}
             variant={6}
+            style={{ pointerEvents: "none" }}
           />
         </div>
       </div>
