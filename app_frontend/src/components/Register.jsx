@@ -1,9 +1,63 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useNavigate } from "react-router-dom";
+import ChromaGrid from './ChromaGrid/ChromaGrid'
 const BACKEND_URL = "http://localhost:5000";
 
 function Register() {
+  const navigate = useNavigate();
+const items = [
+  {
+    image: "https://i.pravatar.cc/300?img=1",
+    title: "Sarah Johnson",
+    subtitle: "Frontend Developer",
+    handle: "@sarahjohnson",
+    borderColor: "#3B82F6",
+    gradient: "linear-gradient(145deg, #3B82F6, #000)",
+    url: "https://github.com/sarahjohnson"
+  },
+  {
+    image: "https://i.pravatar.cc/300?img=2",
+    title: "Mike Chen",
+    subtitle: "Backend Engineer",
+    handle: "@mikechen",
+    borderColor: "#10B981",
+    gradient: "linear-gradient(180deg, #10B981, #000)",
+    url: "https://linkedin.com/in/mikechen"
+  }, {
+    image: "https://i.pravatar.cc/300?img=2",
+    title: "Mike Chen",
+    subtitle: "Backend Engineer",
+    handle: "@mikechen",
+    borderColor: "#10B981",
+    gradient: "linear-gradient(180deg, #10B981, #000)",
+    url: "https://linkedin.com/in/mikechen"
+  },{
+    image: "https://i.pravatar.cc/300?img=2",
+    title: "Mike Chen",
+    subtitle: "Backend Engineer",
+    handle: "@mikechen",
+    borderColor: "#10B981",
+    gradient: "linear-gradient(180deg, #10B981, #000)",
+    url: "https://linkedin.com/in/mikechen"
+  },{
+    image: "https://i.pravatar.cc/300?img=2",
+    title: "Mike Chen",
+    subtitle: "Backend Engineer",
+    handle: "@mikechen",
+    borderColor: "#10B981",
+    gradient: "linear-gradient(180deg, #10B981, #000)",
+    url: "https://linkedin.com/in/mikechen"
+  }, {
+    image: "https://i.pravatar.cc/300?img=2",
+    title: "Mike Chen",
+    subtitle: "Backend Engineer",
+    handle: "@mikechen",
+    borderColor: "#10B981",
+    gradient: "linear-gradient(180deg, #10B981, #000)",
+    url: "https://linkedin.com/in/mikechen"
+  }
+];
   const [form, setForm] = useState({
     firstName: "",
     otherNames: "",
@@ -39,7 +93,8 @@ function Register() {
         body: JSON.stringify(form),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.msg || data.errors?.[0]?.msg || "Error");
+      if (!res.ok)
+        throw new Error(data.msg || data.errors?.[0]?.msg || "Error");
       setResponseMessage("Registration successful!");
       setForm({
         firstName: "",
@@ -51,6 +106,10 @@ function Register() {
         password: "",
         confirmPassword: "",
       });
+      // Delay optional: show message briefly before redirect
+      setTimeout(() => {
+        navigate("/login"); // or "/login"
+      }, 1500);
     } catch (err) {
       setError(true);
       setResponseMessage(err.message);
@@ -62,71 +121,152 @@ function Register() {
   };
 
   return (
-    <div className="container py-5" style={{ fontFamily: "Manrope, Noto Sans, sans-serif" }}>
-      <div className="text-center mb-4">
-        <h2 className="fw-bold">Join SkillSwap</h2>
-        <p>Connect with others and exchange skills without money</p>
+    <>
+    <div style={{ height: '100%', position: 'relative' }}>
+  <ChromaGrid 
+    items={items}
+    radius={300}
+    damping={0.45}
+    fadeOut={0.6}
+    ease="power3.out"
+  />
+</div>
+      <div
+        className="container text-center"
+        style={{ fontFamily: "Manrope, Noto Sans, sans-serif" }}
+      >
+        <div className="text-center mb-4">
+          <h2 className="fw-bold">Join SkillSwap</h2>
+          <p>Connect with others and exchange skills without money</p>
+        </div>
+
+        {responseMessage && (
+          <div className={`alert ${error ? "alert-danger" : "alert-success"}`}>
+            {responseMessage}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
+          <div className=" form-group row mb-3">
+            <div className="col">
+              <input
+                id="firstName"
+                type="text"
+                className="form-control"
+                placeholder="First Name"
+                value={form.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col">
+              <input
+                id="otherNames"
+                type="text"
+                className="form-control"
+                placeholder="Other Name(s)"
+                value={form.otherNames}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col">
+              <input
+                id="phoneNumber"
+                type="tel"
+                className="form-control"
+                placeholder="Phone Number"
+                value={form.phoneNumber}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col">
+              <input
+                id="email"
+                type="email"
+                className="form-control"
+                placeholder="Email"
+                value={form.email}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col">
+              <input
+                id="username"
+                type="text"
+                className="form-control"
+                placeholder="Username"
+                value={form.username}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col">
+              <input
+                id="dateOfBirth"
+                type="date"
+                className="form-control"
+                value={form.dateOfBirth}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col">
+              <input
+                id="password"
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                value={form.password}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="col">
+              <input
+                id="confirmPassword"
+                type="password"
+                className="form-control"
+                placeholder="Confirm Password"
+                value={form.confirmPassword}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="d-grid mb-3">
+            <button className="btn btn-success fw-bold" type="submit">
+              Register
+            </button>
+          </div>
+
+          <p className="text-center">
+            If you already have an account <a href="/signin">signin</a>
+          </p>
+        </form>
+
+        <p className="text-center mt-4">Or continue with</p>
+
+        <div className="d-flex justify-content-center gap-3">
+          <button
+            className="btn btn-outline-success"
+            onClick={() => socialRedirect("google")}
+          >
+            Continue with Google
+          </button>
+          <button
+            className="btn btn-outline-success"
+            onClick={() => socialRedirect("facebook")}
+          >
+            Continue with Facebook
+          </button>
+        </div>
       </div>
-
-      {responseMessage && (
-        <div className={`alert ${error ? "alert-danger" : "alert-success"}`}>
-          {responseMessage}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit}>
-        <div className="row mb-3">
-          <div className="col">
-            <input id="firstName" type="text" className="form-control" placeholder="First Name" value={form.firstName} onChange={handleChange} />
-          </div>
-          <div className="col">
-            <input id="otherNames" type="text" className="form-control" placeholder="Other Name(s)" value={form.otherNames} onChange={handleChange} />
-          </div>
-        </div>
-
-        <div className="row mb-3">
-          <div className="col">
-            <input id="phoneNumber" type="tel" className="form-control" placeholder="Phone Number" value={form.phoneNumber} onChange={handleChange} />
-          </div>
-          <div className="col">
-            <input id="email" type="email" className="form-control" placeholder="Email" value={form.email} onChange={handleChange} />
-          </div>
-        </div>
-
-        <div className="row mb-3">
-          <div className="col">
-            <input id="username" type="text" className="form-control" placeholder="Username" value={form.username} onChange={handleChange} />
-          </div>
-          <div className="col">
-            <input id="dateOfBirth" type="date" className="form-control" value={form.dateOfBirth} onChange={handleChange} />
-          </div>
-        </div>
-
-        <div className="row mb-3">
-          <div className="col">
-            <input id="password" type="password" className="form-control" placeholder="Password" value={form.password} onChange={handleChange} />
-          </div>
-          <div className="col">
-            <input id="confirmPassword" type="password" className="form-control" placeholder="Confirm Password" value={form.confirmPassword} onChange={handleChange} />
-          </div>
-        </div>
-
-        <div className="d-grid mb-3">
-          <button className="btn btn-success fw-bold" type="submit">Register</button>
-        </div>
-
-        <p className="text-center">
-          If you already have an account <a href="signin.html">signin</a>
-        </p>
-      </form>
-
-      <p className="text-center mt-4">Or continue with</p>
-
-      <div className="d-flex justify-content-center gap-3">
-        <button className="btn btn-outline-success" onClick={() => socialRedirect("google")}>Continue with Google</button>
-        <button className="btn btn-outline-success" onClick={() => socialRedirect("facebook")}>Continue with Facebook</button>
-      </div>
-    </div>
+    </>
   );
 }
 
