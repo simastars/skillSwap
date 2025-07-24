@@ -50,19 +50,21 @@ const Signin = () => {
     window.location.href = `${BACKEND_URL}/api/auth/${platform}`;
   };
   return (
-    <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-dark text-white">
-      <div className="w-100" style={{ maxWidth: "100%" }}>
+    <div className="container text-white">
+      
+        
+
         <form className="row text-white g-3" onSubmit={handleSubmit}>
           <div className="text-center mb-4">
-            <h2 className="fw-bold">Login to SkillSwap</h2>
-            <p>Connect with others and exchange skills without money</p>
-          </div>
+          <h2 className="fw-bold">Login to SkillSwap</h2>
+          <p>Connect with others and exchange skills without money</p>
+        </div>
 
-          {responseMessage && (
-            <div className={`alert ${error ? "alert-danger" : "alert-success"}`}>
-              {responseMessage}
-            </div>
-          )}
+        {responseMessage && (
+          <div className={`alert ${error ? "alert-danger" : "alert-success"}`}>
+            {responseMessage}
+          </div>
+        )}
           <div className="col-md-12">
             <label htmlFor="inputEmail4" className="form-label">
               Email
@@ -94,7 +96,7 @@ const Signin = () => {
           <div>
             <div className="mb-3">
               <button
-                className="btn btn-primary fw-bold w-100"
+                className="btn btn-primary fw-bold"
                 id="loginButton"
                 type="submit"
               >
@@ -103,20 +105,6 @@ const Signin = () => {
             </div>
           </div>
         </form>
-
-        <div className="text-center my-3">
-          <span className="text-white">
-            Don't have an account?{" "}
-            <a href="/signup" className="text-light text-decoration-underline">
-              Sign up
-            </a>
-          </span>
-        </div>
-        <div className="text-center my-3">
-          <a href="/" className="text-light text-decoration-underline">
-            &larr; Back to Homepage
-          </a>
-        </div>
 
         <p className="text-center mt-4">Or continue with</p>
 
@@ -134,6 +122,19 @@ const Signin = () => {
             Continue with Facebook
           </button>
         </div>
+        <div className="text-center my-3">
+          <a href="/" className="text-light text-decoration-underline">
+            &larr; Back to Homepage
+          </a>
+        </div>
+   
+      <div className="text-center my-3">
+        <span className="text-white">
+          Don't have an account?{" "}
+          <a href="/signup" className="text-light text-decoration-underline">
+            Sign up
+          </a>
+        </span>
       </div>
     </div>
   );
