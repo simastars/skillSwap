@@ -12,31 +12,36 @@ const Dashboard = () => {
       type: "Offering",
       title: "Web Development",
       desc: "I can help you build a website from scratch using modern technologies.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDYwhYHMQF35GPnzZvLSyLo5-QUOvw2K9tqmQIWcgzs3EDsVtQw2u1Ne7B6t049Av8tkUROcufbdAkeyjeZItJ32ifA7icNYt7UQN85Qhk3S5RgGTdIJNlDVHAEeNb-Ez9tUaOEu_cKAX8FzLrbRlqcJqNU5K3dxRtDHgU5b4eS6MOsfWPgPN0-j36QLCutZWQvVLUaQS6bPrYZuKP2iELaB8hrqLFgGG72HfbdGIU_ter2rAbvEezxO6B9IUU42ytQl-2scWEvAaQ"
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDYwhYHMQF35GPnzZvLSyLo5-QUOvw2K9tqmQIWcgzs3EDsVtQw2u1Ne7B6t049Av8tkUROcufbdAkeyjeZItJ32ifA7icNYt7UQN85Qhk3S5RgGTdIJNlDVHAEeNb-Ez9tUaOEu_cKAX8FzLrbRlqcJqNU5K3dxRtDHgU5b4eS6MOsfWPgPN0-j36QLCutZWQvVLUaQS6bPrYZuKP2iELaB8hrqLFgGG72HfbdGIU_ter2rAbvEezxO6B9IUU42ytQl-2scWEvAaQ",
+      user: { firstName: "Alice", rating: 4.7, ratingCount: 12, profilePic: "https://randomuser.me/api/portraits/women/1.jpg", _id: "u1" }
     },
     {
       type: "Seeking",
       title: "Photography",
       desc: "Looking for someone to take professional photos for my portfolio.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCMHZGve91DN8OjPpPI3lCCBnDQj9qgKFnhIMIap-jOqFQ2Jf1I6HpPo17vHY54QDYB_3NQzcNHmeCzfoweiyiyFSwlQpXKxpfbLjkPlBZOwCCwo6GmhBZb8zKYDdHATgKPt6jO0ptXU780EI7BRIna3nzuhHTBJRIoiVDUajkxLDh64-0eM1xHKl0EINVIkniRzsaI528fccnGJXVQm-IsVK3O0SJuxAGP_OrPkCtR6e2wq9bpTpB76Tnq9UoKSVFQ4UlIXHcZ0Xw"
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCMHZGve91DN8OjPpPI3lCCBnDQj9qgKFnhIMIap-jOqFQ2Jf1I6HpPo17vHY54QDYB_3NQzcNHmeCzfoweiyiyFSwlQpXKxpfbLjkPlBZOwCCwo6GmhBZb8zKYDdHATgKPt6jO0ptXU780EI7BRIna3nzuhHTBJRIoiVDUajkxLDh64-0eM1xHKl0EINVIkniRzsaI528fccnGJXVQm-IsVK3O0SJuxAGP_OrPkCtR6e2wq9bpTpB76Tnq9UoKSVFQ4UlIXHcZ0Xw",
+      user: { firstName: "Bob", rating: 4.2, ratingCount: 8, profilePic: "https://randomuser.me/api/portraits/men/2.jpg", _id: "u2" }
     },
     {
       type: "Offering",
       title: "Graphic Design",
       desc: "I can create logos, branding materials, and other visual assets for your business.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBavUBDR_9SrzUqgIpr8xGChqi6tpPLT1E4LH5dPwW3timT8fDWej5lmZoi_pTdS9EFRQqssHg9gLmsIQOqLqcR2K14nTJ2wM3fi_BbUAg3SikPRBZaiUCiP9SuwFLeIB8DKTURW-kWxBhYN_UOppAhzF7nk-AmllL9sqrDKj7BkrYufFxtS5BE8zSopSxxUI-Ewasdv2PZLoT1cQPS8yfu8lvhY05cvaYIGX4A9j65jy2TkccqRy6pH7NCu2uO9nZr0FjFui9MS5U"
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBavUBDR_9SrzUqgIpr8xGChqi6tpPLT1E4LH5dPwW3timT8fDWej5lmZoi_pTdS9EFRQqssHg9gLmsIQOqLqcR2K14nTJ2wM3fi_BbUAg3SikPRBZaiUCiP9SuwFLeIB8DKTURW-kWxBhYN_UOppAhzF7nk-AmllL9sqrDKj7BkrYufFxtS5BE8zSopSxxUI-Ewasdv2PZLoT1cQPS8yfu8lvhY05cvaYIGX4A9j65jy2TkccqRy6pH7NCu2uO9nZr0FjFui9MS5U",
+      user: { firstName: "Carol", rating: 5.0, ratingCount: 20, profilePic: "https://randomuser.me/api/portraits/women/3.jpg", _id: "u3" }
     },
     {
       type: "Seeking",
       title: "Language Tutoring (Spanish)",
       desc: "I want to improve my Spanish speaking skills. Native speakers preferred.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDWz7IfUnp1K8QEE4AmxODQsfj6fRUNYba7U1e6GMoN_3N3pYVmmMWcegfLSkXIFYm6wJS4mX9khYppNSrl4NE76sZZSWXd1T5IAWTqT8DheOEpCme_5v2zz0c6a3tg8HVdHF29LUuXxApcqQFpyCZBkp2FW7V612pJnSDSrj9aDSBTjlPRZ22jn7IH5APSiPw1uZbbxe1cfkLUmaGJV9PaHpH867lBGcIH6-y7xzaD0YYqKGC7azYEBkzw8E_BdxBMYwRTGTM_B5o"
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDWz7IfUnp1K8QEE4AmxODQsfj6fRUNYba7U1e6GMoN_3N3pYVmmMWcegfLSkXIFYm6wJS4mX9khYppNSrl4NE76sZZSWXd1T5IAWTqT8DheOEpCme_5v2zz0c6a3tg8HVdHF29LUuXxApcqQFpyCZBkp2FW7V612pJnSDSrj9aDSBTjlPRZ22jn7IH5APSiPw1uZbbxe1cfkLUmaGJV9PaHpH867lBGcIH6-y7xzaD0YYqKGC7azYEBkzw8E_BdxBMYwRTGTM_B5o",
+      user: { firstName: "Diana", rating: 3.9, ratingCount: 5, profilePic: "https://randomuser.me/api/portraits/women/4.jpg", _id: "u4" }
     },
     {
       type: "Offering",
       title: "Music Lessons (Guitar)",
       desc: "I can teach you how to play the guitar, from beginner to intermediate level.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3w7ZFWMDZ07Sx1wgxXUX05QPrlwlPMgv6aKMyQUSL0p0HvO5vEHFkt0hp7NI4x38G9NMszVlkAj0C6zINjMvYrstfVyBd3s1VSq_0a3KNShv4XdzBS3MoOQU6cTO9o87Qru04oLEVQLHalwA2z_H9nw8iwqXI4n-PrIY0NWz1eBCS2zXnw28GgNpPnzq6eV8tHU_Zet2PtiW5Z8ahqGY2D7vQ1HeERP0kg0oDSiSUSCXRA-LTyTZ6CATLAAR-4JSvzpmEqCJKHs4"
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA3w7ZFWMDZ07Sx1wgxXUX05QPrlwlPMgv6aKMyQUSL0p0HvO5vEHFkt0hp7NI4x38G9NMszVlkAj0C6zINjMvYrstfVyBd3s1VSq_0a3KNShv4XdzBS3MoOQU6cTO9o87Qru04oLEVQLHalwA2z_H9nw8iwqXI4n-PrIY0NWz1eBCS2zXnw28GgNpPnzq6eV8tHU_Zet2PtiW5Z8ahqGY2D7vQ1HeERP0kg0oDSiSUSCXRA-LTyTZ6CATLAAR-4JSvzpmEqCJKHs4",
+      user: { firstName: "Evan", rating: 4.8, ratingCount: 15, profilePic: "https://randomuser.me/api/portraits/men/5.jpg", _id: "u5" }
     }
   ];
 
@@ -57,6 +62,7 @@ const Dashboard = () => {
     fetch(`${BACKEND_URL}/api/skills?${params.toString()}`)
       .then(res => res.json())
       .then(data => {
+        console.log('Fetched skills:', data);
         if (Array.isArray(data.skills)) {
           setSkills(data.skills);
           setTotalPages(data.totalPages || 1);
@@ -80,10 +86,18 @@ const Dashboard = () => {
     { label: "Verified", value: "Verified" },
     { label: "In Person", value: "In Person" },
     { label: "Remote", value: "Remote" },
+    { label: "4.5+ Stars", value: "rating-4.5" },
+    { label: "4.0+ Stars", value: "rating-4.0" },
+    { label: "3.5+ Stars", value: "rating-3.5" },
   ];
  
 
   const filteredSkills = skills.filter(skill => {
+    // Rating filter
+    if (selectedFilter.startsWith('rating-')) {
+      const minRating = parseFloat(selectedFilter.split('-')[1]);
+      return skill.user && skill.user.rating >= minRating;
+    }
     // Filter by type/label (client-side, after server-side search)
     const matchesFilter = selectedFilter === "All" || skill.type.toLowerCase().includes(selectedFilter.toLowerCase()) || skill.title.toLowerCase().includes(selectedFilter.toLowerCase()) || skill.desc.toLowerCase().includes(selectedFilter.toLowerCase());
     return matchesFilter;
@@ -123,20 +137,58 @@ const Dashboard = () => {
           ) : filteredSkills.length === 0 ? (
             <div>No skills found.</div>
           ) : (
-            filteredSkills.map((skill, i) => (
-              <div key={i} className="cards mb-3 p-3 shadow-sm border-0">
-                <div className="row g-3 align-items-center">
-                  <div className="col-md-8">
-                    <p className="fw-bold mb-1">{skill.type}: {skill.title}</p>
-                    <p className="mb-2">{skill.desc}</p>
-                    <button className="btn button rounded-pill px-4">View Profile</button>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="ratio ratio-16x9 rounded" style={{ backgroundImage: `url(${skill.img})`, backgroundSize: 'cover' }}></div>
+            filteredSkills.map((skill, i) => {
+              // If user info is present, use their profile image and link
+              const user = skill.user;
+              // Example: user.profilePic or user.img for profile image, user._id or user.id for link
+              // Fallback to skill.img if no user image
+              const profileImg = user && user.profilePic ? user.profilePic : skill.img;
+              const profileLink = user && user._id ? `/profile/${user._id}` : null;
+              return (
+                <div key={i} className="cards mb-3 p-3 shadow-sm border-0">
+                  <div className="row g-3 align-items-center">
+                    <div className="col-md-8">
+                      <p className="fw-bold mb-1">{skill.type}: {skill.title}</p>
+                      <p className="mb-2">{skill.desc}</p>
+                      {profileLink ? (
+                        <a href={profileLink} className="btn button rounded-pill px-4">View Profile</a>
+                      ) : (
+                        <button className="btn button rounded-pill px-4" disabled>View Profile</button>
+                      )}
+                    </div>
+                    <div className="col-md-4 d-flex flex-column align-items-center position-relative">
+                      <div className="ratio ratio-16x9 rounded mb-2 position-relative" style={{ backgroundImage: `url(${profileImg})`, backgroundSize: 'cover' }}>
+                        {user && typeof user.rating === 'number' && user.ratingCount > 0 && (
+                          <span style={{
+                            position: 'absolute',
+                            top: 2,
+                            right: 12,
+                            background: 'rgba(0,0,0,0.4)',
+                            color: '#fff',
+                            borderRadius: '12px',
+                            padding: '2px 4px',
+                            fontWeight: 'bold',
+                            fontSize: '1rem',
+                            zIndex: 2,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5em'
+                          }}>
+                            <span>★ {user.rating}</span>
+                            <span style={{ fontSize: '0.85em', opacity: 0.85 }}>
+                              ({user.ratingCount})
+                            </span>
+                          </span>
+                        )}
+                      </div>
+                      {user && user.firstName && (
+                        <span className="text-white">{user.firstName}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           )}
           {/* Pagination controls */}
           <div className="d-flex justify-content-center align-items-center mt-4">
