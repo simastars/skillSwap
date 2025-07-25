@@ -21,6 +21,10 @@ app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // To parse JSON bodies
 app.use(express.urlencoded({ extended: false }));
 
+// Serve uploaded images statically
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Passport middleware
 // Note: Session middleware is required for persistent login sessions.
 // For a stateless API (using JWTs), session would be false.

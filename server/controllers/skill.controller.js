@@ -21,7 +21,7 @@ exports.getSkills = async (req, res, next) => {
     const total = await Skill.countDocuments(query);
     const totalPages = Math.ceil(total / limit) || 1;
     const skills = await Skill.find(query)
-      .populate('user', 'firstName email')
+      .populate('user', 'firstName email rating ratingCount profilePic')
       .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .limit(limit);
@@ -36,14 +36,17 @@ exports.getSkills = async (req, res, next) => {
 
 // @desc    Create a new skill
 exports.createSkill = async (req, res, next) => {
-  console.log('REQ BODY:', req.body);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
   try {
-    const { type, title, desc, img } = req.body;
-    console.log('Creating skill:', { type, title, desc, img });
+    const { type, title, desc } = req.body;
+    let img = req.body.img;
+    // If a file was uploaded, use its path
+    if (req.file) {
+      img = `/uploads/${req.file.filename}`;
+    }
     const skill = new Skill({
       user: req.user.id,
       type,
@@ -67,7 +70,7 @@ exports.getSkillById = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ msg: 'Invalid skill ID' });
     }
-    const skill = await Skill.findById(req.params.id).populate('user', 'firstName email');
+    const skill = await Skill.findById(req.params.id).populate('user', 'firstName email rating ratingCount profilePic');
     if (!skill) return res.status(404).json({ msg: 'Skill not found' });
     res.json(skill);
   } catch (err) {

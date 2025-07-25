@@ -40,6 +40,14 @@ const UserSchema = new mongoose.Schema({
     facebookId: {
         type: String,
     },
+    rating: {
+        type: Number,
+        default: 0
+    },
+    ratingCount: {
+        type: Number,
+        default: 0
+    },
 }, { timestamps: true }); // Automatically adds createdAt and updatedAt
 
 module.exports = mongoose.model('User', UserSchema);
