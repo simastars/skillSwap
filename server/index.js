@@ -35,6 +35,7 @@ app.use(passport.session());
 
 // Define Routes
 app.use('/api/auth', require('./routes/auth.routes'));
+app.use('/api/skills', require('./routes/skill.routes'));
 
 // Simple route for failed login
 app.get('/login-failed', (req, res) => {
