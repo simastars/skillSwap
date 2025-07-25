@@ -43,6 +43,7 @@ function Layout() {
           </ProtectedRoute>
         } />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/login" element={<Signin />} />
         <Route
           path="*"
           element={
